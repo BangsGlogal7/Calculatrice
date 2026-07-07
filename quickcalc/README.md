@@ -265,3 +265,149 @@ Permettre à l'utilisateur d'effacer toutes les données saisies afin de recomme
 ### Statut
 
 ☐ À développer
+
+# Cas d'utilisation (Use Cases)
+
+## Acteur principal
+
+**Utilisateur**
+
+L'utilisateur est la seule personne qui interagit avec l'application.
+
+---
+
+# UC-01 : Effectuer un calcul
+
+## Description
+
+Permet à l'utilisateur d'effectuer une opération mathématique entre deux nombres.
+
+## Préconditions
+
+* L'application est ouverte.
+* Le formulaire est affiché.
+
+## Scénario principal
+
+1. L'utilisateur saisit le premier nombre.
+2. L'utilisateur saisit le deuxième nombre.
+3. L'utilisateur sélectionne une opération.
+4. L'utilisateur clique sur le bouton **Calculer**.
+5. L'application vérifie les données.
+6. L'application effectue le calcul demandé.
+7. Le résultat est affiché à l'utilisateur.
+
+## Résultat attendu
+
+Le résultat du calcul apparaît à l'écran.
+
+---
+
+# UC-02 : Saisie incomplète
+
+## Description
+
+L'utilisateur oublie de remplir un ou plusieurs champs.
+
+## Scénario
+
+1. L'utilisateur laisse un champ vide.
+2. Il clique sur **Calculer**.
+3. L'application détecte l'erreur.
+4. Un message indique que tous les champs sont obligatoires.
+
+## Résultat attendu
+
+Aucun calcul n'est effectué.
+
+---
+
+# UC-03 : Valeur invalide
+
+## Description
+
+L'utilisateur saisit une valeur qui n'est pas un nombre.
+
+## Scénario
+
+1. L'utilisateur saisit une valeur non numérique.
+2. Il clique sur **Calculer**.
+3. L'application vérifie les données.
+4. Un message d'erreur est affiché.
+
+## Résultat attendu
+
+Le calcul est interrompu.
+
+---
+
+# UC-04 : Division par zéro
+
+## Description
+
+L'utilisateur tente de diviser un nombre par zéro.
+
+## Scénario
+
+1. L'utilisateur saisit 0 comme deuxième nombre.
+2. Il choisit la division.
+3. Il clique sur **Calculer**.
+4. L'application détecte la division par zéro.
+5. Un message d'erreur est affiché.
+
+## Résultat attendu
+
+Le calcul n'est pas effectué.
+
+---
+
+# UC-05 : Réinitialiser le formulaire
+
+## Description
+
+L'utilisateur souhaite effectuer un nouveau calcul.
+
+## Scénario
+
+1. L'utilisateur clique sur le bouton **Réinitialiser**.
+2. Tous les champs sont vidés.
+3. Le formulaire revient à son état initial.
+
+## Résultat attendu
+
+L'utilisateur peut commencer un nouveau calcul.
+
+📂 Structure du projet
+quickcalc/
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │   └── script.js
+│   │
+│   ├── images/
+│   │   └── logo.png
+│   │
+│   └── icons/
+│
+├── includes/
+│   ├── header.php
+│   ├── footer.php
+│   ├── navbar.php
+│   └── functions.php
+│
+├── pages/
+│   ├── history.php
+│   └── settings.php
+│
+├── config/
+│   └── config.php
+│
+├── index.php
+│
+├── README.md
+│
+└── .gitignore
+
