@@ -411,3 +411,117 @@ quickcalc/
 │
 └── .gitignore
 
+# Algorithme (Langage naturel)
+
+1. L'utilisateur ouvre la calculatrice.
+2. Il saisit le premier nombre.
+3. Il saisit le deuxième nombre.
+4. Il choisit une opération.
+5. Il clique sur le bouton « Calculer ».
+6. L'application récupère les données du formulaire.
+7. L'application vérifie que les champs sont remplis.
+8. L'application vérifie que les valeurs sont numériques.
+9. L'application vérifie qu'une opération a été choisie.
+10. Si l'opération est une division, vérifier que le deuxième nombre est différent de zéro.
+11. Si une erreur est détectée, afficher un message d'erreur.
+12. Sinon, effectuer le calcul correspondant.
+13. Afficher le résultat.
+14. Fin du traitement.
+
+# Pseudo-code
+
+Début
+
+```
+Lire number1
+Lire number2
+Lire operation
+
+Si number1 est vide
+    Afficher "Veuillez saisir le premier nombre."
+    Arrêter
+
+Si number2 est vide
+    Afficher "Veuillez saisir le deuxième nombre."
+    Arrêter
+
+Si operation est vide
+    Afficher "Veuillez sélectionner une opération."
+    Arrêter
+
+Si number1 n'est pas numérique
+    Afficher "Le premier nombre est invalide."
+    Arrêter
+
+Si number2 n'est pas numérique
+    Afficher "Le deuxième nombre est invalide."
+    Arrêter
+
+Selon operation
+
+    Cas Addition
+        résultat ← number1 + number2
+
+    Cas Soustraction
+        résultat ← number1 - number2
+
+    Cas Multiplication
+        résultat ← number1 × number2
+
+    Cas Division
+
+        Si number2 = 0
+            Afficher "Division par zéro impossible."
+            Arrêter
+
+        résultat ← number1 ÷ number2
+
+Afficher résultat
+```
+
+Fin
+
+                Début
+                   │
+                   ▼
+        Saisie des données
+                   │
+                   ▼
+       Vérifier les champs vides
+             │             │
+           Oui             Non
+            │               │
+            ▼               ▼
+   Afficher une erreur   Vérifier les nombres
+                              │
+                        Valides ?
+                        │     │
+                      Non     Oui
+                       │       │
+                       ▼       ▼
+            Afficher une erreur
+                               │
+                               ▼
+                    Choisir l'opération
+                               │
+         ┌──────────┬──────────┬──────────┬──────────┐
+         ▼          ▼          ▼          ▼
+     Addition  Soustraction Multiplication Division
+                                              │
+                                              ▼
+                                Le diviseur vaut 0 ?
+                                      │       │
+                                     Oui     Non
+                                      │       │
+                                      ▼       ▼
+                           Afficher une erreur
+                                              │
+                                              ▼
+                                  Calcul du résultat
+                                              │
+                                              ▼
+                                 Afficher le résultat
+                                              │
+                                              ▼
+                                             Fin
+
