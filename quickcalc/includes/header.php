@@ -12,4 +12,27 @@
             <li><a href="pages/settings.php"><i class="fa-solid fa-gear"></i>Paramètres</a></li> 
         </ul>
     </nav>
+    <!-- Actions Mobile -->
+    <div class="mobile-action">
+        <a href="pages/history.php" class="history-btn"><i class="fa-solid fa-clock-rotate-left"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+    </div>
+    <!-- menu des trois points -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="menu-item" data-action="about">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>À propos</span>
+        </div>
+
+        <div class="menu-item" data-action="clear-history">
+            <i class="fa-solid fa-trash"></i>
+            <span>Vider l'historique</span>
+        </div>
+
+        <div class="menu-item" data-action="toggle-theme">
+            <i class="fa-solid fa-moon"></i>
+            <span>Mode sombre</span>
+        </div>
+    </div>
+
 </header>

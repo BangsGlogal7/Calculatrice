@@ -1,0 +1,40 @@
+/* ==========================
+  LE HEADER
+========================== */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.logo i, h1 {
+    font-size: 28px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+nav a {
+    display: flex;
+    text-decoration: none;
+    color: var(--text);
+    align-items: center;
+    gap: 8px;
+
+}
+nav a:hover {
+    color: var(--secondary);
+}
+.mobile-action,.mobile-menu {
+    display: none;
+}
