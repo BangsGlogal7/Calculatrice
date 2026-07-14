@@ -33,44 +33,32 @@
                     </p>
                 </div>
 
-                <div class="history-image">
-                    <img src="../assets/images/history.png" alt="Historique des calculs">
-                </div>
+                <button class="history-banner" id="clearHistory">
+                    <i class="fa-solid fa-trash-can"></i>
+                    <h2>Clear History</h2>
+                </button>
 
             </div>
 
         </section>
 
-        <!-- Barre d'actions -->
+       <!-- Barre de contrôle -->
         <section class="history-toolbar">
 
-            <div class="toolbar-left">
-
-                <button class="toolbar-btn active">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    Historique
-                </button>
-
+            <!-- Recherche -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Rechercher un calcul...">
             </div>
 
-            <div class="toolbar-right">
-
-                <button class="clear-btn">
-                    <i class="fa-solid fa-trash"></i>
-                    Vider l'historique
-                </button>
-
+            <!-- Toggle -->
+            <div class="history-filter">
+                <span>Seulement persistant</span>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
             </div>
-
-        </section>
-
-         <!-- Recherche -->
-        <section class="history-search">
-
-            <input
-                type="text"
-                placeholder="Rechercher un calcul..."
-            >
 
         </section>
 

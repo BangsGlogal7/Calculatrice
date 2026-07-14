@@ -1,3 +1,130 @@
 /* ==========================
    HISTORY HERO
 ========================== */
+.history-hero{
+    margin-bottom: 2rem;
+}
+.history-hero-content{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 2rem;
+   padding: 2rem;
+   background: var(--white);
+   border: 1px solid var(--border);
+   border-radius: 16px;
+}
+
+.history-text{
+   flex: 1;
+}
+
+.history-text h1{
+   font-size: 2rem;
+   color: var(--primary);
+   margin-bottom: .8rem;
+}
+
+.history-text p{
+   color: var(--textNavbar);
+   line-height: 1.7;
+   max-width: 500px;
+}
+.history-banner{
+   width:180px;
+   height:180px;
+   background: rgba(239,68,68,.08);
+   border-radius:50%;
+   display:flex;
+   flex-direction:column;
+   justify-content:center;
+   align-items:center;
+   gap:15px;
+   transition:.3s;
+   cursor:pointer;
+
+}
+.history-banner i{
+   font-size:40px;
+   color:var(--primary);
+}
+.history-banner h2{
+   color:var(--primary);
+   font-size:22px;
+   font-weight:700;
+   text-align:center;
+}
+.history-banner:hover{
+   transform:scale(1.1) rotate(-8deg);
+   box-shadow:0 12px 25px rgba(0,0,0,.18);
+}
+/* ==========================
+   TOOLBAR
+========================== */
+.history-toolbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 20px;
+   margin-bottom: 30px;
+}
+.search-box {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   gap: 12px;
+   background:var(--white);
+   border:1px solid var(--border);
+   border-radius:10px;
+   padding:12px 16px;
+}
+.search-box i{
+   color:#9ca3af;
+}
+.search-box input {
+   width:100%; 
+   border:none;   
+   outline:none;  
+   background:none;  
+   font-size:15px;
+}
+.history-filter {
+   display: flex;
+   align-items: center;
+   gap: 12px;
+}
+.switch {
+   position: relative;
+   width: 54px;
+   height: 30px;
+}
+.switch input {
+   display: none;
+}
+.slider {
+   position: absolute;
+   inset: 0;
+   background:#fff;
+   border:2px solid #d1d5db;
+   border-radius:999px;
+   cursor: pointer;
+   transition: .3s;
+}
+.slider::before {
+   content:"";
+   position:absolute;
+   width:20px;
+   height:20px;
+   left:4px;
+   top:3px;
+   border-radius:50%;
+   background:#000;
+   box-shadow:0 2px 5px rgba(0,0,0,.25);
+   transition:.3s;
+}
+.switch input:checked + .slider {
+   background: var(--primary);
+}
+.switch input:checked + .slider::before{
+   transform:translateX(22px);
+}
