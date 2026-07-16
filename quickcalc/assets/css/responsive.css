@@ -136,6 +136,13 @@
         flex-shrink:0;
 
     }
+    .footer-content{
+        flex-direction:column;
+        text-align:center;
+    }
 
+    .footer-brand p{
+        margin:auto;
+    }
     
 }

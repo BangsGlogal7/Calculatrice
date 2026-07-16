@@ -7,9 +7,9 @@
     <!-- la liste des navigations -->
     <nav>
         <ul>
-            <li><a href="calculator.php"><i class="fa-solid fa-house"></i> Acceuil </a></li>
-            <li><a href="pages/history.php"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></li>
-            <li><a href="pages/settings.php"><i class="fa-solid fa-gear"></i>Paramètres</a></li> 
+            <li><a href="<?= $basePath ?>calculator.php"><i class="fa-solid fa-house"></i> Acceuil </a></li>
+            <li><a href="<?= $basePath ?>pages/history.php"><i class="fa-solid fa-clock-rotate-left"></i>Historique</a></li>
+            <li><a href="<?= $basePath ?>pages/settings.php"><i class="fa-solid fa-gear"></i>Paramètres</a></li> 
         </ul>
     </nav>
     <!-- Actions Mobile -->

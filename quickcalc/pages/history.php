@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/history.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
+    <link rel="stylesheet" href="../assets/css/footer.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -17,8 +18,8 @@
 </head>
 <body>
     <!-- Header -->
-    <?php require_once '../includes/header.php'; ?>
-    <main class="history-pag">
+    <?php $basePath = "../"; require_once '../includes/header.php'; ?>
+    <main class="history-page">
 
         <!-- Présentation -->
         <section class="history-hero">
@@ -48,7 +49,7 @@
             <!-- Recherche -->
             <div class="search-box">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Rechercher un calcul...">
+                <input type="text" id="searchInput" placeholder="Rechercher un calcul...">
             </div>
 
             <!-- Toggle -->
@@ -66,35 +67,67 @@
         <!-- Liste des calculs -->
         <section class="history-list">
 
-            <!-- Carte 1 -->
             <article class="history-card">
 
-                <div class="history-expression">
-                    12 × 5 = 60
-                </div>
+                <!-- Barre colorée -->
+                <div class="history-color"></div>
 
-                <div class="history-meta">
+                <div class="history-content">
 
-                    <span>
-                        <i class="fa-regular fa-clock"></i>
-                        13/07/2026 - 10:30
-                    </span>
+                    <!-- Haut de la carte -->
+                    <div class="history-header">
 
-                </div>
+                        <h3>12.5 × 3.2</h3>
 
-                <div class="history-actions">
+                        <span class="result">= 40.0</span>
 
-                    <button title="Copier">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
+                    </div>
 
-                    <button title="Recalculer">
-                        <i class="fa-solid fa-rotate-right"></i>
-                    </button>
+                    <!-- Informations -->
+                    <div class="history-info">
 
-                    <button title="Supprimer">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
+                       <span>Inputs : 12.5 , 3.2</span>
+
+                        <span>Operator : ×</span>
+
+                    </div>
+
+                    <!-- Bas -->
+                    <div class="history-footer">
+
+                        <div class="history-meta">
+
+                            <span>
+                                <i class="fa-solid fa-clock"></i>
+
+                                07/07/2026
+                            </span>
+
+                            <span class="badge local">
+
+                                Local
+
+                            </span>
+
+                        </div>
+
+                        <div class="history-actions">
+
+                            <button title="Copier">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+
+                            <button title="Recalculer">
+                                <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+
+                            <button title="Supprimer">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -102,5 +135,6 @@
 
         </section>
     </main>
+    <?php require_once '../includes/footer.php'; ?>
 </body>
 </html>

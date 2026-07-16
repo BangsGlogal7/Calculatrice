@@ -47,13 +47,14 @@
     <link rel="stylesheet" href="./assets/css/header.css">
     <link rel="stylesheet" href="./assets/css/calculator.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>Accueil | BangsCalc</title>
 </head>
 <body>
     <!-- Header du Body -->
-    <?php require_once 'includes/header.php'; ?>
+    <?php $basePath = ""; require_once 'includes/header.php'; ?>
 
     <!-- Le main -->
     <main class="calculator-page">
