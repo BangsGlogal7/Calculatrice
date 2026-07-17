@@ -121,7 +121,7 @@
                                 <i class="fa-solid fa-rotate-right"></i>
                             </button>
 
-                            <button title="Supprimer">
+                            <button title="Supprimer" class="delete-btn">
                                 <i class="fa-solid fa-trash"></i>
                             </button>
 
@@ -133,6 +133,79 @@
 
             </article>
 
+            <article class="history-card">
+
+                <!-- Barre colorée -->
+                <div class="history-color"></div>
+
+                <div class="history-content">
+
+                    <!-- Haut de la carte -->
+                    <div class="history-header">
+
+                        <h3>1454.5 + 33455.2</h3>
+
+                        <span class="result">= 40.0</span>
+
+                    </div>
+
+                    <!-- Informations -->
+                    <div class="history-info">
+
+                       <span>Inputs : 1454.5,33455.2</span>
+
+                        <span>Operator : +</span>
+
+                    </div>
+
+                    <!-- Bas -->
+                    <div class="history-footer">
+
+                        <div class="history-meta">
+
+                            <span>
+                                <i class="fa-solid fa-clock"></i>
+
+                                16/07/2026
+                            </span>
+
+                            <span class="badge local">
+
+                                Local
+
+                            </span>
+
+                        </div>
+
+                        <div class="history-actions">
+
+                            <button title="Copier">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+
+                            <button title="Recalculer">
+                                <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+
+                            <button title="Supprimer" class="delete-btn">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- Message affiché lorsqu'aucun calcul n'est trouvé -->
+            <div class="empty-search" id="emptySearch">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <h3>Aucun calcul trouvé</h3>
+                <p>Essayez un autre mot-clé.</p>
+            </div>
+            
         </section>
     </main>
     <?php require_once '../includes/footer.php'; ?>
