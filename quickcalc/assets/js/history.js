@@ -4,17 +4,14 @@
 
 // Sélectionne le champ de recherche
 const searchInput = document.getElementById('searchInput');
-
-// Sélectionne toutes les cartes de l'historique
-const historyCards = document.querySelectorAll('.history-card');
-
 // Sélectionne le message "Aucun calcul trouvé"
 const emptySearch = document.getElementById('emptySearch');
-
 // Sélectionne tous les boutons de suppression
 const deleteButon = document.querySelectorAll('.delete-btn');
+// Selectione le button "vider l'historique"
+const clearHistoryBtn = document.getElementById('clearHistory')
 
-//----------------------------- les functions --------------------//
+//-----------------------------les functions --------------------//
 //--------------------------------------------------------------//
 
 // Vérifie si l'historique est vide
@@ -36,43 +33,86 @@ function updateEmptyState() {
 
 }
 
+// Filtre les cartes selon le texte saisi
+
+function filterHistory() {
+
+    // Récupère toutes les cartes actuellement présentes
+    const historyCards = document.querySelectorAll(".history-card");
+    // Récupère le texte saisi dans le champ de recherche
+    const search = searchInput.value.toLowerCase();
+    //compteur des cartes visibles
+    let visibleCount = 0;
+    
+    //parcours toutes les cartes
+    historyCards.forEach(card => {
+
+        // Récupère le texte de la carte en minuscule
+        const text = card.textContent.toLowerCase();
+        
+        //Vérifie si la carte contient le text recherché
+        if (text.includes(search)) {
+            //Affiche la carte
+            card.style.display = "flex";
+            // imcrement le compteur
+            visibleCount++;
+        }else {
+            // cache la carte 
+            card.style.display = "none";
+        }
+    });
+    updateSearchState(visibleCount);
+}
+
+// Met à jour l'affichage du message de recherche
+function updateSearchState(visibleCount) {
+    // Vérifie si aucune carte n'est visible
+    if (visibleCount === 0) {
+
+        // Affiche le message
+        emptySearch.style.display = "block";
+
+    } else {
+
+        // Cache le message
+        emptySearch.style.display = "none";
+
+    }
+}
+
+// Supprime toutes les cartes de l'historique
+function clearHistory() {
+
+    // Demande une confirmation à l'utilisateur
+    const confirmation = confirm("Voulez-vous vraiment supprimer tout l'historique ?");
+
+    // Vérifie si l'utilisateur a confirmé
+    if (!confirmation) {
+        return;
+    }
+
+    // Récupère toutes les cartes actuellement présentes
+    const historyCards = document.querySelectorAll(".history-card");
+
+    // Parcourt toutes les cartes
+    historyCards.forEach(card => {
+
+        // Supprime la carte
+        card.remove();
+
+    });
+
+    // Met à jour l'état de l'historique
+    updateEmptyState();
+
+}
 //-----------------------------Les Evenements --------------------//
 //--------------------------------------------------------------//
 
 // Écoute chaque modification dans le champ de recherche
 
 searchInput.addEventListener('input', ()=>{
-
-    //Recupère le texte saisi et le met en minuscule
-    const search = searchInput.value.toLowerCase();
-
-    // Compte le nombre de cartes encore visibles
-    const visibleCount = 0;
-    
-    //Parcourir toutes les cartes
-    historyCards.forEach(card => {
-
-        // Récupère le texte de la carte en minuscule
-        const text = card.textContent.toLocaleLowerCase();
-
-        // Vérifie si la carte contient le texte recherché
-        if (text.includes(search)) {
-
-            // Affiche la carte
-            card.style.display = "flex";
-
-            // Incrémente le compteur
-            visibleCount++;
-        }else {
-            // Cache la carte
-            card.style.display = "none";
-
-        }
-    })
-    //appelle de la fonction pour visibilité
-    updateEmptyState();
-    
-    
+    filterHistory();     
 });
 
 // Parcourt tous les boutons
@@ -95,4 +135,9 @@ deleteButon.forEach(button =>{
         }
     });
    
+});
+
+//lance la suppression de tout l'hisotrique 
+clearHistoryBtn.addEventListener('click', ()=>{
+    clearHistory();
 });
