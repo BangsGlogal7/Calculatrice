@@ -1,12 +1,14 @@
  <!-- Code PHP -->
 <?php
+    require_once "includes/init.php";
+
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        
+
         $number1 = (float)$_POST['number1'] ;
         $number2 = (float)$_POST['number2'] ;
         $operation = $_POST['operation'] ;
 
-       switch($operation) {
+        switch($operation) {
 
             case 'addition':
                 $resultat = $number1 + $number2 ;
@@ -31,8 +33,37 @@
                 break;
             default:
                 $erreur = 'Operateur Invalide .';
+        }
 
-       }
+       // Vérifie que le calcul s'est bien déroulé
+        if (!isset($erreur)) {
+
+            // Représente le calcul effectué
+            $calcul = [
+
+                // Premier nombre
+                "number1" => $number1,
+
+                // Deuxième nombre
+                "number2" => $number2,
+
+                // Symbole de l'opération
+                "operation" => $symbol,
+
+                // Résultat obtenu
+                "resultat" => $resultat,
+
+                // Date et heure du calcul
+                "date" => date("d/m/Y H:i:s"),
+
+                // Type de sauvegarde
+                "type" => "Local"
+
+            ];
+            
+            $_SESSION['history'][] = $calcul ;
+        }
+
     }
 ?>
 
@@ -54,7 +85,7 @@
 </head>
 <body>
     <!-- Header du Body -->
-    <?php $basePath = ""; require_once 'includes/header.php'; ?>
+    <?php $basePath = ""; require_once 'includes/header.php';?>
 
     <!-- Le main -->
     <main class="calculator-page">

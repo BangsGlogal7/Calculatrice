@@ -1,3 +1,5 @@
+<?php require_once "../includes/init.php";?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +20,7 @@
 </head>
 <body>
     <!-- Header -->
-    <?php $basePath = "../"; require_once '../includes/header.php'; ?>
+    <?php $basePath = "../"; require_once '../includes/header.php';?>
     <main class="history-page">
 
         <!-- Présentation -->
@@ -66,138 +68,86 @@
 
         <!-- Liste des calculs -->
         <section class="history-list">
+            
+            <?php if (!empty($_SESSION["history"])) : ?>
+                <?php foreach ($_SESSION["history"] as $calcul) : ?>
 
-            <article class="history-card">
+                    <article class="history-card">
 
-                <!-- Barre colorée -->
-                <div class="history-color"></div>
+                        <!-- Barre colorée -->
+                        <div class="history-color"></div>
 
-                <div class="history-content">
+                        <div class="history-content">
 
-                    <!-- Haut de la carte -->
-                    <div class="history-header">
+                            <!-- Haut de la carte -->
+                            <div class="history-header">
 
-                        <h3>12.5 × 3.2</h3>
+                                <h3>
+                                    <?= $calcul["number1"] ?>
+                                    <?= $calcul["operation"] ?>
+                                    <?= $calcul["number2"] ?>
+                                </h3>
 
-                        <span class="result">= 40.0</span>
+                                <span class="result">
+                                    = <?= $calcul["resultat"] ?>
+                                </span>
 
-                    </div>
+                            </div>
 
-                    <!-- Informations -->
-                    <div class="history-info">
 
-                       <span>Inputs : 12.5 , 3.2</span>
+                            <!-- Informations -->
+                            <div class="history-info">
 
-                        <span>Operator : ×</span>
+                                <span>
+                                    Inputs :
+                                    <?= $calcul["number1"] ?>,
+                                    <?= $calcul["number2"] ?>
+                                </span>
 
-                    </div>
+                                <span>
+                                    Operator :
+                                    <?= $calcul["operation"] ?>
+                                </span>
 
-                    <!-- Bas -->
-                    <div class="history-footer">
+                            </div>
 
-                        <div class="history-meta">
+                            <!-- Bas -->
+                            <div class="history-footer">
 
-                            <span>
-                                <i class="fa-solid fa-clock"></i>
+                                <div class="history-meta">
+                                    <span>
+                                        <i class="fa-solid fa-clock"></i>
+                                        <?= $calcul["date"] ?>
+                                    </span>
+                                    <span class="badge local">
+                                        <?= $calcul["type"] ?>
+                                    </span>
+                                </div>
 
-                                07/07/2026
-                            </span>
+                                <div class="history-actions">
 
-                            <span class="badge local">
+                                    <button title="Copier">
+                                        <i class="fa-regular fa-copy"></i>
+                                    </button>
 
-                                Local
+                                    <button title="Recalculer">
+                                        <i class="fa-solid fa-rotate-right"></i>
+                                    </button>
 
-                            </span>
+                                    <button title="Supprimer" class="delete-btn">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
 
-                        </div>
+                                </div>
 
-                        <div class="history-actions">
-
-                            <button title="Copier">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
-
-                            <button title="Recalculer">
-                                <i class="fa-solid fa-rotate-right"></i>
-                            </button>
-
-                            <button title="Supprimer" class="delete-btn">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-            <article class="history-card">
-
-                <!-- Barre colorée -->
-                <div class="history-color"></div>
-
-                <div class="history-content">
-
-                    <!-- Haut de la carte -->
-                    <div class="history-header">
-
-                        <h3>1454.5 + 33455.2</h3>
-
-                        <span class="result">= 40.0</span>
-
-                    </div>
-
-                    <!-- Informations -->
-                    <div class="history-info">
-
-                       <span>Inputs : 1454.5,33455.2</span>
-
-                        <span>Operator : +</span>
-
-                    </div>
-
-                    <!-- Bas -->
-                    <div class="history-footer">
-
-                        <div class="history-meta">
-
-                            <span>
-                                <i class="fa-solid fa-clock"></i>
-
-                                16/07/2026
-                            </span>
-
-                            <span class="badge local">
-
-                                Local
-
-                            </span>
+                            </div>
 
                         </div>
 
-                        <div class="history-actions">
+                    </article>
 
-                            <button title="Copier">
-                                <i class="fa-regular fa-copy"></i>
-                            </button>
-
-                            <button title="Recalculer">
-                                <i class="fa-solid fa-rotate-right"></i>
-                            </button>
-
-                            <button title="Supprimer" class="delete-btn">
-                                <i class="fa-solid fa-trash"></i>
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
+                <?php endforeach; ?>
+            <?php endif; ?>
 
             <!-- Message affiché lorsqu'aucun calcul n'est trouvé -->
             <div class="empty-search" id="emptySearch">
