@@ -126,7 +126,7 @@
 
                                 <div class="history-actions">
 
-                                    <button title="Copier">
+                                    <button title="Copier" class="copy-btn">
                                         <i class="fa-regular fa-copy"></i>
                                     </button>
 

@@ -10,6 +10,8 @@ const emptySearch = document.getElementById('emptySearch');
 const deleteButon = document.querySelectorAll('.delete-btn');
 // Selectione le button "vider l'historique"
 const clearHistoryBtn = document.getElementById('clearHistory')
+// Selection tous les buttons copiers
+const copyButton = document.querySelectorAll('.copy-btn');
 
 //-----------------------------les functions --------------------//
 //--------------------------------------------------------------//
@@ -106,6 +108,14 @@ function clearHistory() {
     updateEmptyState();
 
 }
+
+//Copier une carte 
+function copyHistory(card) {
+   
+    const text = card.textContent;
+    navigator.clipboard.writeText(text);
+    
+}
 //-----------------------------Les Evenements --------------------//
 //--------------------------------------------------------------//
 
@@ -140,4 +150,33 @@ deleteButon.forEach(button =>{
 //lance la suppression de tout l'hisotrique 
 clearHistoryBtn.addEventListener('click', ()=>{
     clearHistory();
+});
+
+// Parcourt tous les buttons 
+copyButton.forEach(button => {
+
+    button.addEventListener('click', ()=> {
+
+        // Recherche la carte associée au bouton
+        const card = button.closest('.history-card');
+        // Appel de la function qui copy le text
+        copyHistory(card);
+
+        // Recherche de l'icone associée au button
+        const icon = button.querySelector('i');
+        // Retirer les anciennes classes
+        icon.classList.remove("fa-regular", "fa-copy");
+        icon.classList.add("fa-solid", "fa-check");
+
+        
+        setTimeout(() => {
+            
+            // Remplace l'icône "copier" par une coche
+            icon.classList.remove("fa-solid", "fa-check");
+           // Remet l'icône "copier"
+            icon.classList.add("fa-regular", "fa-copy");
+
+        }, 2000); 
+
+    });
 });
